@@ -1,0 +1,16 @@
+build/
+__pycache__/
+*.sqlite*
+.DS_Store
+.env*
+*.pem
+*.key
+*.cer
+*.p12
+*.csv
+*.pdf
+*.mobileconfig
+Backups/
+PhoneAccess/
+static/regalia-gold-mastercard.png
+static/dream-different.webp
