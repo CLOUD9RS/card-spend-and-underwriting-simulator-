@@ -21,3 +21,21 @@ dialog{background:var(--surface);color:var(--ink);border:1px solid var(--border)
 .phone-controls { flex-wrap:wrap; margin:12px 0; }
 .phone-forget { margin-top:10px; }
 .phone-certificate small,.phone-certificate code { display:block;font-size:.75rem;color:var(--sub);overflow-wrap:anywhere;margin-top:8px; }
+
+.walletidentity {
+  width: min(230px, 82%);
+  aspect-ratio: 1.586;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 18px;
+  border: 1px solid #a8936e;
+  border-radius: 12px;
+  background: linear-gradient(116deg, #272722, #483e32 57%, #322d27);
+  color: #f6efdb;
+  box-shadow: 0 7px 16px #201d1633;
+  text-align: left;
+}
+.walletidentity small { font-size: .72rem; letter-spacing: .04em; }
+.walletidentity b { font-family: Georgia, serif; font-size: clamp(1.18rem, 2.6vw, 1.65rem); font-weight: 500; }
+.walletidentity span { align-self: flex-end; font-size: .8rem; font-weight: 650; }

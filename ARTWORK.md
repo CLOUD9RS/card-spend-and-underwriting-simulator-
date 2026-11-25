@@ -1,6 +1,6 @@
 # Card artwork
 
-The illustrations are public product images. Each card's saved network and last four digits appear separately in the wallet.
+The illustrations are public product images. The wallet selects a product illustration only for the matching issuer, product and network. Other editions, including Regalia Gold Visa, use a text card with the saved issuer, card name and network. A user-supplied image takes precedence.
 
 | Local image | Attribution and variant |
 | --- | --- |

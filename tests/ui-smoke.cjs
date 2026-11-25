@@ -42,6 +42,11 @@ const run=(script)=>vm.runInContext(script,context);
       assert.ok(!/\b(?:NaN|undefined)\b/.test(nodes.get('#app').innerHTML),p);
     }
   }
+  const cardArt = (program, bank, network) => run('plastic(' + JSON.stringify({id:-1,name:'Test card',program,bank,network}) + ')');
+  assert.match(cardArt('regalia','HDFC Bank','Visa'),/walletidentity/);
+  assert.match(cardArt('regalia','HDFC Bank','Mastercard'),/regalia-gold-mastercard.png/);
+  assert.match(cardArt('dream','Kotak Mahindra Bank','RuPay'),/dream-different.webp/);
+  assert.match(cardArt('dream','Kotak Mahindra Bank','Visa'),/walletidentity/);
   run("setPage('overview')");
   await run("workspaceAction('set-theme',{dataset:{theme:'dark'}})");
   assert.equal(document.documentElement.dataset.theme,'dark');

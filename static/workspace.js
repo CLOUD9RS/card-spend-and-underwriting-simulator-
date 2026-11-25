@@ -86,16 +86,15 @@ function trend(){
 function plastic(c){
  const custom=s.artwork?.[c.id];
  if(custom)return `<img class="productart ownart" src="data:image/jpeg;base64,${custom}" alt="Saved artwork for ${esc(c.name)}">`;
- const h=c.program==='regalia'&&c.bank==='HDFC Bank',k=c.program==='dream'&&c.bank==='Kotak Mahindra Bank';
- if(!h&&!k)return `<div class="genericcard">${icon('cards',42)}<span>${esc(c.name)}</span></div>`;
+ const h=c.program==='regalia'&&c.bank==='HDFC Bank'&&c.network==='Mastercard';
+ const k=c.program==='dream'&&c.bank==='Kotak Mahindra Bank'&&c.network==='RuPay';
+ if(!h&&!k)return `<div class="walletidentity"><small>${esc(c.bank)}</small><b>${esc(c.name)}</b><span>${esc(c.network)}</span></div>`;
  return `<img class="productart ${h?'hdfcart':'kotakart'}" src="${h?'regalia-gold-mastercard.png':'dream-different.webp'}" alt="${h?'HDFC Regalia Gold Mastercard sample artwork':'Kotak811 Dream Different product artwork'}">`;
 }
 function wallet(){
  const c=s.cards[cardIndex];if(!c)return empty('Your wallet is empty','Add your first card in My cards.');
- const mismatch=c.program==='regalia'&&c.network!=='Mastercard'&&!s.artwork?.[c.id];
  return `<section class="panel walletpanel"><div class="panelhead"><h2>Card wallet</h2>${navButton('Manage cards','cards')}</div>
- <div class="walletstage"><div class="orbit"></div>${plastic(c)}</div><div class="walletcaption"><div><b>${esc(c.name)}</b><small>${esc(c.network)} · ${c.last4?'•••• '+esc(c.last4):'No ending saved'}</small></div><div class="pager">${iconBtn('prev-card','left','Previous card')}<span>${cardIndex+1}/${s.cards.length}</span>${iconBtn('next-card','right','Next card')}</div></div>
- ${mismatch?'<p class="artnote">Product illustration shows the Mastercard edition.</p>':''}</section>`;
+ <div class="walletstage"><div class="orbit"></div>${plastic(c)}</div><div class="walletcaption"><div><b>${esc(c.name)}</b><small>${esc(c.network)} · ${c.last4?'•••• '+esc(c.last4):'No ending saved'}</small></div><div class="pager">${iconBtn('prev-card','left','Previous card')}<span>${cardIndex+1}/${s.cards.length}</span>${iconBtn('next-card','right','Next card')}</div></div></section>`;
 }
 function overviewPage(){
  const w=finance(),rows=forMonth(selectedMonth),net=sum(rows,'net'),value=sum(rows,'value');
